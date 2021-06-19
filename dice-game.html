@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dice Game</title>
+</head>
+<body>
+    <h1>Dice Game</h1>
+    <h2>Rules:</h2>
+    <ul>
+        <li>When you click the Roll Dice! button, you will roll up to 10 dice, one at a time. 
+        <li>If you roll a 1, game stops and all further rolls are forfeited.</li>
+        <li>If you roll 2, 3, you win nothing but you get to roll again.</li>
+        <li>If ypu roll a 4, you lose a gold coin.</li>
+        <li>If you roll a 5, you win 5 gold coins and you get to roll again.</li>
+        <li>If you roll a 6, you win 6 gold coins and you get to roll again.</li>
+    </ul>
+    <button type="button" onclick="rollDice()">Roll Dice!</button>
+    <script>
+        function rollDice() {
+    let goldCoins = 0;
+    for (let i = 0; i < 10; i++) {
+        const roll = Math.floor(Math.random() * 6) + 1;
+        alert('you rolled a ' + roll + '.');
+        if (roll === 1) {
+            alert('game over, no more rolls!');
+            break;
+        }
+        if (roll === 4) {
+            alert('sorry you lost a coin!');
+            break;
+        }
+        if (roll < 5) {
+            continue;
+        }
+        alert('congratulations, you win' + roll + ' gold coins!');
+        goldCoins += roll;
+    }
+    alert('you have won a total of ' + goldCoins + ' gold coins!');
+}
+    </script>
+</body>
+</html>
